@@ -1,0 +1,22 @@
+{
+  "name": "HRON",
+  "short_name": "HRON",
+  "description": "Attendance system for phone, web and terminal",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#12163A",
+  "theme_color": "#12163A",
+  "icons": [
+    {
+      "src": "assets/img/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

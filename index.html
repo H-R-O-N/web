@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HRON | Attendance system for phone, web and terminal</title>
+<meta name="description" content="HRON records arrivals, departures, leave and requests on a phone, on the web or with a chip at a terminal. The source code is being published on GitHub.">
+<meta name="theme-color" content="#12163A">
+<meta name="color-scheme" content="dark">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src https://plausible.io; connect-src https://plausible.io; style-src 'self'; img-src 'self'; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'">
+<link rel="canonical" href="https://hron.tech/">
+<link rel="alternate" hreflang="en" href="https://hron.tech/">
+<link rel="alternate" hreflang="sk" href="https://hron.tech/sk/">
+<link rel="alternate" hreflang="x-default" href="https://hron.tech/">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/img/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="assets/fonts/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HRON">
+<meta property="og:title" content="HRON | Attendance system for phone, web and terminal">
+<meta property="og:description" content="HRON records arrivals, departures, leave and requests on a phone, on the web or with a chip at a terminal. The source code is being published on GitHub.">
+<meta property="og:url" content="https://hron.tech/">
+<meta property="og:image" content="https://hron.tech/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="HRON">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="sk_SK">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://hron.tech/#website", "url": "https://hron.tech/", "name": "HRON", "inLanguage": ["en", "sk"]}, {"@type": "SoftwareApplication", "name": "HRON", "url": "https://hron.tech/", "description": "HRON records arrivals, departures, leave and requests on a phone, on the web or with a chip at a terminal. The source code is being published on GitHub.", "applicationCategory": "BusinessApplication", "operatingSystem": "Windows, macOS, Linux, iOS, Android", "inLanguage": "en", "sameAs": ["https://github.com/H-R-O-N"]}]}</script>
+</head>
+<body>
+<svg class="sprite" width="0" height="0" aria-hidden="true">
+  <symbol id="i-web" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-approve" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.8 2.8L16 9.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-request" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v6M9 15h6"/></symbol>
+  <symbol id="i-export" viewBox="0 0 24 24"><path d="M12 3v12M7.5 10.5L12 15l4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="13" height="13" rx="2"/><path d="M6 10h3v3H6zM18 9a4.5 4.5 0 0 1 0 6M20.5 7a8 8 0 0 1 0 10"/></symbol>
+  <symbol id="i-meal" viewBox="0 0 24 24"><path d="M4.5 3v18M2.5 3v4.5a2 2 0 0 0 4 0V3M20 3v18M20 3c-1.8 1.5-2.5 4.5-2.5 8H20"/><circle cx="12" cy="12" r="4.5"/></symbol>
+  <symbol id="i-devices" viewBox="0 0 24 24"><path d="M15 5H4.5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2H12M5.5 20H12M8.5 16v4"/><rect x="15" y="8.5" width="6.5" height="12" rx="1.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.6-3.1 8-7.5 9.5-4.400-1.500-7.500-4.900-7.500-9.500V6z"/><path d="M9 12l2.200 2.200L15 10.200"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.500 7L3.500 12l5 5M15.500 7l5 5-5 5M13.500 4.500l-3 15"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="7" rx="2"/><rect x="3.5" y="13" width="17" height="7" rx="2"/><path d="M7.500 7.500h.01M7.500 16.500h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.800 10.600c.6.5.8 1.100.8 1.900h6c0-.8.2-1.400.8-1.900A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+<a class="skip" href="#features">Skip to features</a>
+<div class="wrap">
+  <header class="nav">
+    <a href="#top"><img src="assets/img/hron-logo.webp" alt="HRON" width="1146" height="260"></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#platforms">Platforms</a></li>
+        <li><a href="#open-source">Open source</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="lang" role="group" aria-label="Language"><span class="seg" aria-current="true" lang="en"><abbr title="English">EN</abbr></span><a class="seg" href="sk/" lang="sk" hreflang="sk"><abbr title="Slovensky">SK</abbr></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <h1>Track attendance on a phone, the web <span>or a chip.</span></h1>
+      <div class="hero-side">
+        <p>HRON is an attendance system. Your employees record arrivals, departures and leave requests, and you see the whole company in real time.</p>
+        <div class="cta">
+          <a class="btn btn-blue" href="#features">See the features</a>
+          <a class="btn btn-ghost" href="https://github.com/H-R-O-N">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <a class="t t-oss" id="open-source" href="https://github.com/H-R-O-N">
+      <div>
+        <h2 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-code"/></svg><span>HRON is now open source</span></h2>
+        <p>We wrote HRON for ourselves more than 10 years ago. We are now publishing the code on the H-R-O-N GitHub profile.</p>
+      </div>
+      <svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg>
+    </a>
+
+    <section class="bento" id="features">
+      <article class="t t-web">
+        <span class="label">Web app</span>
+        <h2 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-web"/></svg><span>Fewer questions for HR</span></h2>
+        <p>"How much leave do I have left?" "What happened to my request?" Each employee finds the answer on the web or in the app.</p>
+        <img src="assets/img/hronmockup-web.webp" alt="HRON web app with a monthly attendance chart" width="864" height="829">
+      </article>
+
+      <article class="t t-gps">
+        <span class="label">GPS location</span>
+        <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span>You know where an employee clocked in</span></h3>
+        <p>The mobile app allows you to track the location of each record. You see whether the employee was at the assigned workplace, and you can present the same records at an occupational safety inspection.</p>
+      </article>
+
+      <article class="t t-alerts">
+        <span class="label">Approvals</span>
+        <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-approve"/></svg><span>One approver, or several in sequence</span></h3>
+        <p>Each approver gets an alert, then a reminder while the request is still waiting.</p>
+      </article>
+
+      <article class="t t-app">
+        <div>
+          <span class="label">Mobile app</span>
+          <h2 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span>Attendance in your pocket</span></h2>
+          <p>Employees install the app on Android or iOS and use it to:</p>
+          <ul>
+            <li>clock in and out</li>
+            <li>request holiday, carer's leave or sick leave</li>
+            <li>check their leave balance</li>
+            <li>see in the calendar which colleagues are away</li>
+          </ul>
+        </div>
+        <img src="assets/img/domov_hron.webp" alt="HRON mobile app home screen" width="520" height="1036" loading="lazy" decoding="async">
+      </article>
+
+      <article class="t t-req">
+        <img src="assets/img/ziadanky_hron.webp" alt="Requests list with approved and rejected states" width="520" height="1036" loading="lazy" decoding="async">
+        <div>
+          <span class="label">Requests</span>
+          <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-request"/></svg><span>Request leave in a few taps</span></h3>
+          <p>You create your own leave categories. Employees see their balance and the state of each request.</p>
+        </div>
+      </article>
+
+      <article class="t t-sm">
+        <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-export"/></svg><span>Accounting export</span></h3>
+        <p>You export the month's hours to your accounting system.</p>
+      </article>
+      <article class="t t-sm">
+        <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg><span>Absence calendar</span></h3>
+        <p>You see in the calendar who is away today.</p>
+      </article>
+      <article class="t t-sm">
+        <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-terminal"/></svg><span>Terminals</span></h3>
+        <p>Employees clock in with a chip at a physical terminal, or at a virtual one on the web or a phone.</p>
+      </article>
+      <article class="t t-sm">
+        <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-meal"/></svg><span>Meal vouchers</span></h3>
+        <p>You get each employee's entitlement, worked out from their contracted hours.</p>
+      </article>
+
+      <article class="t t-plat" id="platforms">
+        <div>
+          <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-devices"/></svg><span>Runs on your devices</span></h3>
+          <p>You install HRON on desktop and mobile.</p>
+        </div>
+        <ul class="os">
+          <li>Windows</li><li>macOS</li><li>Linux</li><li>iOS</li><li>Android</li>
+        </ul>
+      </article>
+      <article class="t t-plat">
+        <div>
+          <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg><span>Protected data</span></h3>
+          <p>You control access with roles (RBAC). Employees reach the company network through EntGuard VPN.</p>
+        </div>
+      </article>
+
+      <article class="t t-contact" id="contact">
+        <div>
+          <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-server"/></svg><span>Let us host HRON for you</span></h3>
+          <p>We run HRON on our infrastructure, so you install and maintain nothing. Write to us with your company size and we will reply with the details.</p>
+        </div>
+        <a class="btn btn-blue" href="mailto:info@hron.tech?subject=HRON%20hosting">Email us about hosting</a>
+      </article>
+      <article class="t t-contact">
+        <div>
+          <h3 class="hd"><svg class="ico" aria-hidden="true"><use href="#i-bulb"/></svg><span>Missing a feature?</span></h3>
+          <p>Tell us what you need HRON to do. We read each request and answer with what we can build.</p>
+        </div>
+        <a class="btn btn-ghost" href="mailto:info@hron.tech?subject=HRON%20feature%20request">Email a feature request</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <img src="assets/img/hron-logo.webp" alt="HRON" width="1146" height="260">
+    <span>Attendance system for mobile, web and terminal</span>
+    <a href="mailto:info@hron.tech">info@hron.tech</a>
+    <a href="https://github.com/H-R-O-N">github.com/H-R-O-N</a>
+  </footer>
+</div>
+</body>
+</html>

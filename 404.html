@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found | HRON</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#12163A">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="/favicon.ico" sizes="48x48" data-root>
+<link rel="stylesheet" href="/assets/css/style.css" data-root>
+<script>
+var base = /\.github\.io$/.test(location.hostname) ? '/' + location.pathname.split('/')[1] : '';
+function fixRoots() {
+  if (!base) return;
+  var nodes = document.querySelectorAll('[data-root]');
+  for (var i = 0; i < nodes.length; i++) {
+    var attr = nodes[i].hasAttribute('src') ? 'src' : 'href';
+    nodes[i].setAttribute(attr, base + nodes[i].getAttribute(attr));
+    nodes[i].removeAttribute('data-root');
+  }
+}
+(function () {
+  var path = location.pathname.slice(base.length).replace(/\/+$/, '').toLowerCase();
+  var exact = {
+    '/en/overview-of-hron-functions': '/#features',
+    '/en/contact': '/#contact',
+    '/en/online-demo': '/#contact',
+    '/en/price-list': '/#contact',
+    '/funkcie': '/sk/#features',
+    '/kontakt': '/sk/#contact',
+    '/online-demo': '/sk/#contact',
+    '/cennik': '/sk/#contact'
+  };
+  var english = [
+    'about-us', 'blogs', 'entguard-vpn',
+    'hr-punk-and-decoding-the-needs-of-generation-z-in-the-workplace', 'hron-terms-of-use',
+    'improving-employee-productivity-and-attendance', 'security-first-what-is-a-vpn',
+    'streamline-the-process-of-tracking-attendance-effortlessly',
+    'ukazte-svojmu-personalistovi-ze-ho-mate-radi', 'with-hron-against-corruption',
+    'with-hron-you-can-work-to-your-full-potential-all-year-round'
+  ];
+  var slovak = [
+    'bezpecnost-na-prvom-mieste-co-je-vpn', 'blogy', 'entguard-vpn',
+    'hr-punk-a-dekodovanie-potrieb-generacie-z-na-pracovisku',
+    'hron-pomaha-riesit-zastupitelnost-pocas-dovoleniek', 'o-nas',
+    'ochrana-osobnych-udajov', 'podmienky-cookies', 'podmienky-pouzivania',
+    'podmienky-skusobna-verzia', 'proces-sledovania-dochadzky-efektivne-a-bez-namahy',
+    'reklamacny-poriadok-hardverovy-terminal', 's-hron-om-proti-korupcii',
+    'vseobecne-obchodne-podmienky', 'zjednoduste-pracu-svojim-personalistom',
+    'zlepsovanie-produktivity-pomocou-dochadzkoveho-systemu-hron'
+  ];
+  var target = exact[path];
+  if (!target && (path === '/en' || (path.indexOf('/en/') === 0 && english.indexOf(path.slice(4)) !== -1))) target = '/';
+  if (!target && slovak.indexOf(path.slice(1)) !== -1) target = '/sk/';
+  if (target) location.replace(base + target);
+  else fixRoots();
+})();
+</script>
+<style>
+  .nf { padding: 88px 0 72px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .nf-code { grid-column: 1 / -1; font-size: clamp(96px, 22vw, 260px); font-weight: 800; line-height: .9; letter-spacing: -0.04em; color: var(--blue); margin-bottom: 32px; }
+  .nf .t { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .nf h1, .nf h2 { font-size: 28px; font-weight: 750; line-height: 1.2; }
+  .nf .btn { margin-top: 8px; }
+  @media (max-width: 760px) { .nf { grid-template-columns: 1fr; padding-top: 56px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <a href="/" data-root><img src="/assets/img/hron-logo.webp" alt="HRON" width="1146" height="260" data-root></a>
+  </header>
+
+  <main class="nf">
+    <p class="nf-code" aria-hidden="true">404</p>
+    <section class="t" lang="en">
+      <h1>We could not find this page</h1>
+      <p>Check the address for a typing mistake, or start again from the home page.</p>
+      <a class="btn btn-blue" href="/" data-root>Go to the home page</a>
+    </section>
+    <section class="t" lang="sk">
+      <h2>Túto stránku sme nenašli</h2>
+      <p>Skontrolujte, či v adrese nie je preklep, alebo začnite na úvodnej stránke.</p>
+      <a class="btn btn-ghost" href="/sk/" data-root>Prejsť na úvodnú stránku</a>
+    </section>
+  </main>
+
+  <footer>
+    <img src="/assets/img/hron-logo.webp" alt="HRON" width="1146" height="260" data-root>
+    <a href="mailto:info@hron.tech">info@hron.tech</a>
+    <a href="https://github.com/H-R-O-N">github.com/H-R-O-N</a>
+  </footer>
+</div>
+<script>fixRoots();</script>
+</body>
+</html>

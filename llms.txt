@@ -1,0 +1,12 @@
+# HRON
+
+> HRON is an attendance system. Employees record arrivals, departures and leave requests on a phone, on the web or with a chip at a terminal, and managers see the whole company in real time. The source code is being published at https://github.com/H-R-O-N.
+
+## Pages
+
+- [HRON (English)](https://hron.tech/): features, platforms, open source status and contact
+- [HRON (Slovak)](https://hron.tech/sk/): the same page in Slovak
+
+## Contact
+
+- Email: info@hron.tech (hosting on our infrastructure, feature requests)
